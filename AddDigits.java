@@ -13,20 +13,17 @@ public class Solution {
     public int addDigits(int num) {
         int result = 0;
         final int NUM_TEN = 10;
-    	
-    		do{
-    			int lastNum = num%NUM_TEN;
-    			result += lastNum;
-    			num = num/NUM_TEN;
-    		}while(num>NUM_TEN);
-
-    		result += num;
-    		
-    		if(result>NUM_TEN){
-    			return addDigit(result);
-    		}else{
-    			return result;
-    		}
-    }
+    	do{
+			int lastNum = num%NUM_TEN;
+			result += lastNum;
+			num = num/NUM_TEN;
+		}while(num>NUM_TEN);
+		
+		result += num;			
+		if(result>NUM_TEN){
+			return addDigit(result);
+		}else{
+			return result;
+		}
     }
 }
