@@ -17,6 +17,7 @@ Special thanks to @jianchao.li.fighter for adding this problem and creating all 
 */
 /*完全参考现成的解法，调试过程中理解了这个解法*/
 public class Solution {
+    /*pass*/
 	public int nthUglyNumber(int n) {
 		int []result = new int[n];
         result[0] = 1;

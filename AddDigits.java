@@ -10,6 +10,7 @@ Could you do it without any loop/recursion in O(1) runtime?
 */
 
 public class Solution {
+	/*316 ms pas 1101 case*/
     public int addDigits(int num) {
         int result = 0;
         final int NUM_TEN = 10;
@@ -17,13 +18,17 @@ public class Solution {
 			int lastNum = num%NUM_TEN;
 			result += lastNum;
 			num = num/NUM_TEN;
-		}while(num>NUM_TEN);
+		}while(num>=NUM_TEN);
 		
 		result += num;			
-		if(result>NUM_TEN){
-			return addDigit(result);
+		if(result>=NUM_TEN){
+			return addDigits(result);
 		}else{
 			return result;
 		}
+    }
+    /*288ms pass 1101 case*/
+    public  int addDigits(int num) {
+        return (num-1)%9 +1;
     }
 }

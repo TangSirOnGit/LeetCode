@@ -8,30 +8,38 @@ Special thanks to @jianchao.li.fighter for adding this problem and creating all 
 */
 
 public class Solution {
+	/*too slowly ,3.17% */
 	public List<String> summaryRanges(int[] nums) {
-		int totalNum =  nums.length;
-		final String containerStr = "\"";
 		List<String> resultList = new ArrayList<String>();
+        int totalNum =  nums.length;
+        if(totalNum==0){
+            return resultList;
+        }
+		//final String containerStr = "";
 		int startPos = 0;
 		for(int index=0; index < totalNum; index++){
 			if(nums[index] - nums[startPos] == index - startPos){
 				continue;
 			}else{
 				if(index - startPos > 1){
-					resultList.add(containerStr+nums[startPos]+"->"+nums[index-1]+containerStr);
+					resultList.add(nums[startPos]+"->"+nums[index-1]);
 				}else{
-					resultList.add(containerStr+nums[startPos]+containerStr);
+					resultList.add(nums[startPos]);
 				}
 				startPos = index;
 			}
 		}
 
-		if(totalNum -1 - startPos > 1){
-			resultList.add(containerStr+nums[startPos]+"->"+nums[totalNum-1]+containerStr);
+		if(totalNum -1 - startPos >= 1){
+			resultList.add(nums[startPos]+"->"+nums[totalNum-1]);
 		}else{
-			resultList.add(containerStr+nums[startPos]+containerStr);
+			resultList.add(nums[startPos]);
 		}
 		
 		return resultList;
 		}
+		}
 }
+
+/*
+*/

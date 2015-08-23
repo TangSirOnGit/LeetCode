@@ -13,6 +13,8 @@ Credits:
 Special thanks to @ts for adding this problem and creating all test cases.
 */
 
+
+/*pass all test*/
 public class Solution {
     public int compareVersion(String version1, String version2) {
     	if(version1 == null || version2 == null){
@@ -20,20 +22,29 @@ public class Solution {
         }
         String verValues1[] = version1.split("\\.");
         String verValues2[] = version2.split("\\.");
-        if(verValues1.length <2 || verValues2.length <2){
-            return 0;
+        int length1 = verValues1.length;
+        int length2 = verValues2.length;
+        int maxLength = Math.max(verValues1.length,verValues2.length);
+        int index =0;
+        //System.out.println("maxLength="+maxLength);
+        while(index < maxLength){
+            int value1 = 0;
+            int value2 = 0;
+            if(index < length1){
+                value1 = Integer.parseInt(verValues1[index]);
+            }
+            if(index < length2){
+                value2 = Integer.parseInt(verValues2[index]);
+            }
+            //System.out.println("value1="+value1+",value2="+value2);
+            if(value1>value2){
+                return 1;
+            }else if(value1 <value2){
+                return -1;
+            }
+            index++;
         }
-        double da = Math.pow(10, verValues1[1].length());
-        double value1 = Integer.parseInt(verValues1[0]) + Integer.parseInt(verValues1[1])/da;
-
-        da = Math.pow(10, verValues2[1].length());
-        double value2 = Integer.parseInt(verValues2[0]) + Integer.parseInt(verValues2[1])/da;
-        if(value1>value2){
-            return 1;
-        }else if(value1 < value2){
-            return -1;
-        }else{
-            return 0;
-        }
+        
+        return 0;
     }
 }

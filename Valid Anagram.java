@@ -9,48 +9,15 @@ Note:
 You may assume the string contains only lowercase alphabets.
  */
 public class Solution {
+	/*pass*/
 	public boolean isAnagram(String s, String t) {
-		if(s == null || t == null){
-			return false;
-	    }
-		if(s.length() != t.length()){
-			return false;
-		}
-		char [] charArray = s.toCharArray();
-		Map sMap = new HashMap();
-		for(Character  elment : charArray){
-			Integer num = (Integer)sMap.get(elment);
-			if(num == null){
-				num = 1;
-			}else{
-				num += 1;
-			}
-			sMap.put(elment, num);
-		}
-		charArray = t.toCharArray();
-		Map tMap = new HashMap();
-		for(Character  elment : charArray){
-			if( !sMap.containsKey(elment)){
-				return false;
-			}
-			Integer num = (Integer)tMap.get(elment);
-			if(num == null){
-				num = 1;
-			}else{
-				num += 1;
-			}
-			tMap.put(elment, num);
-		}
-	
-		Iterator iter = sMap.entrySet().iterator();
-		while (iter.hasNext()) {
-			Map.Entry entry = (Map.Entry) iter.next();
-			Object key = entry.getKey();
-			Object val = entry.getValue();
-			if(val != tMap.get(key)){
-				return false;
-			}
-		}
-		return true;
+		if(s==null||t==null||s.length()!=t.length()){  
+        return false;  
+    }  
+    char[] array1 = s.toCharArray();  
+    char[] array2 = t.toCharArray();  
+    Arrays.sort(array1);  
+    Arrays.sort(array2);  
+    return Arrays.equals(array1, array2); 
 	}
 }

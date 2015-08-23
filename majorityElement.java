@@ -6,6 +6,7 @@ Special thanks to @ts for adding this problem and creating all test cases.
 */
 
 public class Solution{
+    /*pass, but too slowly, 14.33%*/
     public static int majorityElement(int[] nums) {
         int totalNum = nums.length;
         Map elementMap = new HashMap();
@@ -17,7 +18,7 @@ public class Solution{
                 times = (int)elementMap.get(element) +1;
             }
 
-            if(times>=(totalNum/2)){
+            if(times>(totalNum/2)){
                 break;
             }else{
                 elementMap.put(element, times);

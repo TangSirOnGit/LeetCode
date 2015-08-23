@@ -5,6 +5,7 @@ Example1: x = 123, return 321
 Example2: x = -123, return -321
 */
 public class Solution {
+	/*存在溢出问题*/
 	public int reverse(int x) {
 		int result = 0;
      	 	final int NUM_TEN = 10;

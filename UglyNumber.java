@@ -11,6 +11,7 @@ Special thanks to @jianchao.li.fighter for adding this problem and creating all 
 */
 
 public class Solution {
+   /*pass*/ 
     public boolean isUgly(int num) {
     	if(num <=0){
             return false;
